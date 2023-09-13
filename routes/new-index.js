@@ -1,22 +1,15 @@
 
 var express = require('express');
 var router = express.Router();
+const Item = require("../models/itemsModel");
+
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://<username>:<password>@<cluster>-vgz77.azure.mongodb.net/test?retryWrites=true&w=majority";
-
+var url = "mongodb+srv://lekim:nWHG960wbiRrOfue@cluster0.wk9vibk.mongodb.net/test?retryWrites=true&w=majority";
 
 router.get('/', (req, res, next) => {
 	MongoClient.connect(url, function(err, db) {
-		if (err) throw err;
-		var dbo = db.db("<database>");
-		dbo.collection("collection1").find({}).toArray(function(err, result) {
-			if (err) throw err;
-			console.log('Mongo data coming in hot')
-    		console.log(result);
-    		res.json(result)
-    		db.close();
-    	});
+		res.send({message: "This apxajxjabc"})
 	}); 
 });
 
